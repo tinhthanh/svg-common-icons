@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "generate-icons": "svg-to-ts --conversionType constants -s projects/common-icons/icons/**/*.svg -o projects/common-icons/src/lib -f common-icons -p commonIcons -t commonIcon -i CommonIcon",
     "test": "ng test"
   },
   "private": true,
@@ -34,6 +35,8 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
+    "ng-packagr": "^12.0.0",
+    "svg-to-ts": "^6.0.1",
     "typescript": "~4.2.3"
   }
 }

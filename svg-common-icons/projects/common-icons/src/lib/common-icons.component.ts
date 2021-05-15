@@ -6,7 +6,7 @@ import { CommonIconsService } from './common-icons.service';
   template: `
         <ng-content></ng-content>
     `,
-    styles: [':host::ng-deep svg{width: 100%; height: 100%} :host(dinosaur-icons) { display: flex; }'],
+    styles: [':host::ng-deep svg{width: 100%; height: 100%} :host(lib-common-icons) { display: flex; }'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CommonIconsComponent {

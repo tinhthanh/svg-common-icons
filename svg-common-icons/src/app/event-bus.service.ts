@@ -45,11 +45,12 @@ export class EventBusService {
     }
   }
 }
-export class ActionEvent{
+export abstract class ActionEvent{
   action: string;
   state: any ;
    constructor(action: string, state: any) {
      this.action =action;
      this.state = state;
    }
+   abstract makeSound(input : string) : string;
 }

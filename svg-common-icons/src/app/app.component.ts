@@ -65,6 +65,9 @@ console.log(days4)
 }
 
 export class Demo extends ActionEvent{
+  makeSound(input: string): string {
+    throw new Error('Method not implemented.');
+  }
   action: string; 
   state: any
   constructor(action: string, state: any) {

@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Type } from '@angular/core';
+import { ActionEvent, EventBusService } from './event-bus.service';
+import{ filter, tap } from 'rxjs/operators'
+import { ChildComponent } from './child/child.component';
+import { commonIconsArtist } from 'projects/common-icons/src/public-api';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -6,8 +10,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'svg-common-icons';
-
-  constructor() {
+  constructor(private eventBusService: EventBusService) {
+    eventBusService.listenChange<Demo>(ChildComponent).pipe(
+      filter( z =>  
+        (z instanceof Demo )
+      )
+    ).subscribe( z => {
+      console.log(z)
+    })
 const f = new Date();
 f.setDate(f.getDate());
 var days = this.formatTime(f);
@@ -52,4 +62,14 @@ console.log(days4)
            return  `${fn(time.getDay())} ${time.toLocaleString("defalt", { month : 'long'})} ${time.getFullYear().toString().substr(-2)}`;
     }
 }
+}
+
+export class Demo extends ActionEvent{
+  action: string; 
+  state: any
+  constructor(action: string, state: any) {
+    super(action,state);
+    this.action = action;
+    this.state =state;
+  }
 }

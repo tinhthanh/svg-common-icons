@@ -3,3 +3,11 @@
 </div>
 <app-child></app-child>
 <app-parent></app-parent>
+
+<form [formGroup]="form">
+  <div class="form-group">
+    <label for="phone-number">Phone Number</label>
+    {{form.value | json}}
+    <input class="form-control"  type="text" appPhoneMask  formControlName="phone" id="phone-number"  >
+  </div>
+</form>

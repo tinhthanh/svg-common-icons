@@ -8,8 +8,9 @@ import { ParentComponent } from './solution-step/parent/parent.component';
 import { ChilNComponent } from './solution-step/chil-n/chil-n.component';
 import { ChilZComponent } from './solution-step/chil-z/chil-z.component';
 import { PlaceholderDirective } from './placeholder.directive';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { PhoneMaskDirective } from './directives/phone-mask.directive';
 
 @NgModule({
   declarations: [
@@ -18,13 +19,15 @@ import { CommonModule } from '@angular/common';
     ParentComponent,
     ChilNComponent,
     ChilZComponent,
-    PlaceholderDirective
+    PlaceholderDirective,
+    PhoneMaskDirective
   ],
   imports: [
     BrowserModule,
     CommonIconsModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

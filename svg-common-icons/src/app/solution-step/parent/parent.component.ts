@@ -59,7 +59,7 @@ export class ParentComponent implements OnInit {
   }]
   constructor(private eventBusService: EventBusService) { 
     this.ofType(ChilZComponent).subscribe( z => {
-      if(z.action=== 'SAVE') {
+      if(z.action=== ChilZComponent.action.SAVE) {
         this.list.push({
           userName : 'alex',
           phone : '0981773084',
@@ -81,8 +81,7 @@ export class ParentComponent implements OnInit {
 
     this.ofType(ChilNComponent).subscribe( data => {
       console.log(data)
-
-      if(data.action=== 'EDIT') {
+      if(data.action=== ChilNComponent.action.EDIT) {
         this.index = data.state;
         this.goChild2();
       }

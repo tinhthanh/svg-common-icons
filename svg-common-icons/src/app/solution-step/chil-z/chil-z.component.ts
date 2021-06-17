@@ -11,6 +11,9 @@ export class ChilZComponent implements OnInit {
   @Input() list: any[] = [];
   @Output() eventBus:EventEmitter<any> = new EventEmitter();
   @Input() index:number   =0;
+  public static action: {SAVE:string } = {
+    SAVE : 'SAVE'
+  }
   constructor(private eventBusService: EventBusService) { }
 
   ngOnInit(): void {

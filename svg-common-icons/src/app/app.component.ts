@@ -3,6 +3,7 @@ import { ActionEvent, EventBusService } from './event-bus.service';
 import{ filter, tap } from 'rxjs/operators'
 import { ChildComponent } from './child/child.component';
 import { commonIconsArtist } from 'projects/common-icons/src/public-api';
+import { FormBuilder, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,7 +11,12 @@ import { commonIconsArtist } from 'projects/common-icons/src/public-api';
 })
 export class AppComponent {
   title = 'svg-common-icons';
-  constructor(private eventBusService: EventBusService) {
+  form: FormGroup;
+
+  constructor(private eventBusService: EventBusService,fb: FormBuilder) {
+    this.form = fb.group({
+      phone: ['']
+    });
     eventBusService.listenChange<Demo>(ChildComponent).pipe(
       filter( z =>  
         (z instanceof Demo )

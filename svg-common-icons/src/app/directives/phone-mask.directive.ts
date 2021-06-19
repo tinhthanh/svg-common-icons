@@ -1,11 +1,11 @@
-import { Directive, HostListener } from '@angular/core';
+import { Directive, HostListener, Self } from '@angular/core';
 import { NgControl } from '@angular/forms';
 
 @Directive({
   selector: '[formControlName][appPhoneMask]'
 })
 export class PhoneMaskDirective {
-  constructor(public ngControl: NgControl| any) {}
+  constructor(@Self() public ngControl: NgControl) {}
 
   @HostListener('ngModelChange', ['$event'])
   onModelChange(event: any) {
@@ -34,6 +34,6 @@ export class PhoneMaskDirective {
       newVal = newVal.substring(0, 10);
       newVal = newVal.replace(/^(\d{0,3})(\d{0,3})(\d{0,4})/, '$1-$2-$3');
     }
-    this.ngControl.valueAccessor.writeValue(newVal);
+    this.ngControl.valueAccessor?.writeValue(newVal);
   }
 }

@@ -1,0 +1,15 @@
+<div class="template-container" >
+    <ng-container *ngTemplateOutlet="eng; context: myContext"></ng-container>
+    <ng-template #eng let-name><span>Hello {{name}}!</span></ng-template>
+    <p>let-person="localSk"</p>
+    <ng-container *ngTemplateOutlet="svk; context: myContext"></ng-container>
+    <ng-template #svk let-person="localSk"><span> {{person}}!</span></ng-template>
+</div>
+<app-using-content>
+    <app-template-header></app-template-header>
+    <app-template-footer></app-template-footer>
+    <app-template-body></app-template-body>
+    <div id="key">
+        select="div[id='key']"
+     </div>
+</app-using-content>

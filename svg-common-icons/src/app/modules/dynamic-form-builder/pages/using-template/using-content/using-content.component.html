@@ -1,0 +1,23 @@
+<div class="template-container">
+    <p>using-content </p>
+    <div class="header">
+        HEADER <br>
+        <!-- <ng-content select="app-template-header"></ng-content> -->
+    </div>
+    <div class="body-content">
+        BODY <br>
+        <!-- <ng-content select="app-template-body"></ng-content> -->
+    </div>
+    <div class="footer">
+        FOOTER<br>
+        <!-- <ng-content select="app-template-footer"></ng-content> -->
+    </div>
+    <div  class="footer">
+            <ng-content select="div[id='key']"></ng-content>
+        TOTAL<br>
+        <ng-container *ngFor="let item of ['app-template-header','app-template-body','app-template-footer']">
+            <ng-content  [select]="item"></ng-content>
+        </ng-container>
+    </div>
+</div>
+

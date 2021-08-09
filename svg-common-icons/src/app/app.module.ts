@@ -11,6 +11,7 @@ import { PlaceholderDirective } from './placeholder.directive';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { PhoneMaskDirective } from './directives/phone-mask.directive';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,11 @@ import { PhoneMaskDirective } from './directives/phone-mask.directive';
     CommonIconsModule,
     FormsModule,
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot([{
+      path: 'form',
+      loadChildren: () => import('../app/modules/dynamic-form-builder/dynamic-form-builder.module').then(m => m.DynamicFormBuilderModule),
+    }])
   ],
   providers: [],
   bootstrap: [AppComponent],
